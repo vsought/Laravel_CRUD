@@ -10,4 +10,8 @@ class ModelBook extends Model
     use HasFactory;
 
     protected $table='books';
+
+    public function relUsers(){
+        return $this->hasOne('App\Models\User', 'id', 'id_user');
+    }
 }

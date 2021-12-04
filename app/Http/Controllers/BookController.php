@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\ModelBook;
+use App\Models\User;
 
 class BookController extends Controller
 {
@@ -11,9 +13,22 @@ class BookController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+
+    private $user;
+    private $book;
+
+    public function __construct(){
+        $this->user = new User();
+        $this->book = new ModelBook();
+    }
+
+    
     public function index()
     {
-        return view("index");
+        $books = $this->book->all();
+        return view("index", compact('books'));
+        //dd($this->user->all());
     }
 
     /**
@@ -45,7 +60,8 @@ class BookController extends Controller
      */
     public function show($id)
     {
-        //
+        $book = $this->book->find($id);
+        return view("show", compact('book'));
     }
 
     /**
