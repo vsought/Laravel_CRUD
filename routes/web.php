@@ -16,4 +16,4 @@ use App\Http\Controllers\BookController;
 
 Route::get('/books', [BookController::class, 'index']);
 Route::get('/books/{id}', [BookController::class, 'show']);
-//Route::get('series',[SeriesController::class, 'listarSeries']);
+Route::get('/books/create', [BookController::class, 'create']);

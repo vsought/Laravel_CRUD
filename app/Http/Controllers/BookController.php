@@ -38,7 +38,8 @@ class BookController extends Controller
      */
     public function create()
     {
-        //
+        $users = $this->user->all();
+        return view("create", compact('users'));
     }
 
     /**
@@ -49,7 +50,16 @@ class BookController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $cad = $this->book->create([
+            'titulo' => $request->titulo,
+            'pages' => $request->pagina,
+            'price' => $request->preco,
+            'id_user' => $request->autor
+        ]);
+
+        if($cad){
+            return redirect('books');
+        }
     }
 
     /**

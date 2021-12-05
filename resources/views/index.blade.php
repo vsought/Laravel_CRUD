@@ -1,7 +1,7 @@
 @extends('templates.template')
 
 @section('content')
-    <h1>Teste</h1>
+    <h1>Livros</h1>
     <hr>
     <table class="table">
         <thead>
@@ -40,7 +40,7 @@
         </tbody>
     </table>
     <div>
-        <a href="">
+        <a href="{{url('books/create')}}">
             <button>Cadastrar</button>
         </a>
     </div>
