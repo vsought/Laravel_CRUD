@@ -38,8 +38,9 @@ class BookController extends Controller
      */
     public function create()
     {
+        //$books = $this->book->all($id);
         $users = $this->user->all();
-        return view("create", compact('users'));
+        return view("create", compact('users', 'books'));
     }
 
     /**
@@ -82,7 +83,9 @@ class BookController extends Controller
      */
     public function edit($id)
     {
-        //
+        $book = $this->book->find($id);
+        $users = $this->user->all();
+        return view("create", compact('book', 'users'));
     }
 
     /**
@@ -94,7 +97,13 @@ class BookController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->book->where(['id' => $id])->update([
+            'titulo' => $request->titulo,
+            'pages' => $request->pagina,
+            'price' => $request->preco,
+            'id_user' => $request->autor
+        ]);
+        return redirect('books');
     }
 
     /**

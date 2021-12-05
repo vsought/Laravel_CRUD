@@ -28,7 +28,7 @@
                         <a href="{{url("books/$book->id")}}">
                             <button>Visualizar</button>
                         </a>
-                        <a href="">
+                        <a href="{{url("books/$book->id/edit")}}">
                             <button>Editar</button>
                         </a>
                         <a href="">
