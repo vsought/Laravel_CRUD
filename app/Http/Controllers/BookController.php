@@ -114,6 +114,7 @@ class BookController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $del = $this->book->destroy($id);
+        return($del)?"sim":"não";
     }
 }

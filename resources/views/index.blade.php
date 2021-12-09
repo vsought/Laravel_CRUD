@@ -4,6 +4,7 @@
     <h1>Livros</h1>
     <hr>
     <table class="table">
+        @csrf
         <thead>
             <tr>
             <th scope="col">Id</th>
@@ -31,7 +32,7 @@
                         <a href="{{url("books/$book->id/edit")}}">
                             <button>Editar</button>
                         </a>
-                        <a href="">
+                        <a href="{{url("books/$book->id")}}" class="js-del">
                             <button>Deletar</button>
                         </a>
                     </td>
